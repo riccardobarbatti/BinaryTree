@@ -12,3 +12,6 @@ https://en.wikipedia.org/wiki/Binary_search_tree
 - Find Closest Value
 - Branch Sums
 - Convert JSON Format
+
+TODO: 
+- improve removal method, reduce if-else
