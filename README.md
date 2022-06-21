@@ -10,5 +10,8 @@ https://en.wikipedia.org/wiki/Binary_search_tree
 - Delete Node
 - Search Node
 - Find Closest Value
-- Branch Sums
 - Convert JSON Format
+
+TODO: 
+- improve removal method, reduce if-else
+- Branch Sums
