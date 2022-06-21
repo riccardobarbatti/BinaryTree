@@ -13,5 +13,5 @@ https://en.wikipedia.org/wiki/Binary_search_tree
 - Convert JSON Format
 
 TODO: 
-- improve removal method, reduce if-else
-- Branch Sums
+- Improve removal method, reduce if-else
+- Branch Sums Algorithm
