@@ -62,6 +62,70 @@ class BinaryTree {
 
     }
     //---------------------------------------
+    //search Closest Value method
+    //Time: O(log(n)) - Space: O(1)
+    findClosestValue(target){
+        console.log("--- findClosestValue init");
+        //1.check root node
+        if(!this.root){
+            return false;
+        }
+        //2. check left and right node
+        let currentNode = this.root;
+        let closest = 0;
+        while(currentNode){
+            if (Math.abs(target - closest)  > Math.abs(target - currentNode.value)) {
+                closest = currentNode.value;
+            }
+            if(target < currentNode.value){
+                currentNode = currentNode.left;
+            } else if (target > currentNode.value){
+                currentNode = currentNode.right;
+            } else {
+                //node not found
+                console.log("-- Node not Found!");
+                break;
+            }
+        }
+        console.log("-- Closest value: "+closest);
+        return closest;
+
+    }
+    //---------------------------------------
+    //Branch Sums
+    //Time: O(n) - Space: O(n)
+    sumBranches(){
+        console.log("--- Branch Sums init");
+        const sums = [];
+        this.calculateBranchSums(this.root,0, sums);
+        console.log("SUM: "+ sums);
+        return sums;
+
+
+    }
+    //calculate Sums - recursive
+    calculateBranchSums(node, runningSum, sums){
+            //1.check root node
+            if(!node){
+                return;
+            }
+            //check branch
+            //let currentNode = node;
+            const newRunningSum = runningSum + node.value;
+             console.log("--- newRunningSum --: " + newRunningSum);
+            if(!node.left && !node.right) {
+                //add value in sums array
+                sums.push(newRunningSum);
+                console.log("--- Sums --: " + sums);
+                return;
+            }
+            //LEFT
+            this.calculateBranchSums(node.left, newRunningSum, sums);
+            //RIGHT
+            this.calculateBranchSums(node.right, newRunningSum, sums);
+
+    }
+    //---------------------------------------
     //Remove node
     remove(value) {
         if (!this.root) {
